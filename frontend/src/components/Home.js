@@ -24,7 +24,7 @@ const Home = (props) => {
     <>
       <TopBar />
       <div className="bg-white py-3 shadow-sm mb-2 sticky">
-        <div className="desktop-width mx-auto d-flex flex-row">
+        <div className="container mx-auto d-flex flex-row">
           <Search />
           <DropDown options={sortOptions} />
 
