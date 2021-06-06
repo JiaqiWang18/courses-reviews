@@ -108,7 +108,7 @@ Data Structures Used:
 
 1. Clone the repo and go to the folder
    ```sh
-   git clone https://github.com/JiaqiWang18/course-reviews.git
+   git clone https://github.com/JiaqiWang18/courses-reviews.git
    ```
 2. Install NPM packages
    ```sh
