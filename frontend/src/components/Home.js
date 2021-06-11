@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Grid from "@material-ui/core/Grid";
 import Alert from "@material-ui/lab/Alert";
 import SideBar from "./SideBar";
@@ -7,6 +7,7 @@ import TopBar from "./TopBar";
 import DropDown from "./Dropdown";
 import CourseList from "./CourseList";
 import { connect } from "react-redux";
+import ProfileDropDown from "./ProfileDropDown";
 
 const sortOptions = [
   {
@@ -20,41 +21,27 @@ const sortOptions = [
 ];
 
 const Home = (props) => {
+  const [isTopBarOnScreen, setisTopBarOnScreen] = useState(true);
+  const containerWidth = isTopBarOnScreen
+    ? "container"
+    : "container-fluid w-90";
   return (
     <>
-      <TopBar />
-      <div className="bg-white py-3 shadow-sm mb-2 sticky">
-        <div className="container mx-auto d-flex flex-row">
+      <TopBar setisTopBarOnScreen={setisTopBarOnScreen} />
+      <div className={`bg-white py-3 shadow-sm mb-2 sticky`}>
+        <div className={`${containerWidth} mx-auto d-flex flex-row`}>
+          {!isTopBarOnScreen && (
+            <div className="d-flex flex-row mr-3">
+              <div className="text-lead" style={{ fontSize: "1.5em" }}>
+                Course Reviews
+              </div>
+              <i class="fas fa-comment-dots"></i>
+            </div>
+          )}
           <Search />
           <DropDown options={sortOptions} />
-
-          <div className={`ml-auto`}>
-            {props.loggedIn ? (
-              <a
-                className="btn btn-outline-danger"
-                href="/logout"
-                role="button"
-              >
-                Log out
-              </a>
-            ) : (
-              <>
-                <a
-                  className="btn btn-outline-primary mr-1"
-                  href="/login"
-                  role="button"
-                >
-                  Log In
-                </a>
-                <a
-                  className="btn btn-outline-danger"
-                  href="/register"
-                  role="button"
-                >
-                  Register
-                </a>
-              </>
-            )}
+          <div className={`ml-auto ml-2`}>
+            <ProfileDropDown />
           </div>
         </div>
       </div>

@@ -50,6 +50,7 @@ class CourseSerializer(serializers.ModelSerializer):
 class RatingSerializer(serializers.ModelSerializer):
     first_name = serializers.SerializerMethodField()
     last_name = serializers.SerializerMethodField()
+    course_name = serializers.SerializerMethodField()
 
     def get_first_name(self, obj):
         author = obj.author
@@ -59,7 +60,11 @@ class RatingSerializer(serializers.ModelSerializer):
         author = obj.author
         return author.last_name
 
+    def get_course_name(self, obj):
+        title = obj.course.title
+        return title
+
     class Meta:
         model = Rating
-        fields = ('id', 'student_rating', 'comment', 'first_name', 'last_name', "course")
+        fields = ('id', 'student_rating', 'comment', 'first_name', 'last_name', "course", "course_name")
         read_only_fields = ['author']

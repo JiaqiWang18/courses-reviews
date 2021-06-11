@@ -7,6 +7,7 @@ import { updateLogIn } from "../actions";
 import { connect } from "react-redux";
 import Logout from "./Logout";
 import NotFound from "./NotFound";
+import CommentList from "./CommentList";
 
 const App = (props) => {
   useEffect(() => {
@@ -21,6 +22,7 @@ const App = (props) => {
         <Route path="/" exact component={Home} />
         <Route path="/courses/:id" exact component={Home} />
         <Route path="/courses" exact component={Home} />
+        <Route path="/ratings" exact component={CommentList} />
         <Route path="*" component={NotFound} />
       </Switch>
     </Router>
