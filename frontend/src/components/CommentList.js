@@ -5,7 +5,7 @@ import backend from "../apis/backend";
 import ProfileDropDown from "./ProfileDropDown";
 import { makeStyles } from "@material-ui/core/styles";
 import Rating from "@material-ui/lab/Rating";
-
+import Button from "@material-ui/core/Button";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -13,6 +13,12 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+import Alert from "@material-ui/lab/Alert";
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import DialogTitle from "@material-ui/core/DialogTitle";
 
 const useStyles = makeStyles({
   table: {},
@@ -22,6 +28,9 @@ const CommentList = (props) => {
   const classes = useStyles();
   let history = useHistory();
   const [commentList, setCommentList] = useState([]);
+  const [messageList, setMessageList] = useState([]);
+  const [openDeleteDialog, setOpenDeleteDialog] = useState(false);
+  const [checkOutRating, setCheckOutRating] = useState({});
 
   useEffect(() => {
     if (!localStorage.getItem("access_token")) {
@@ -38,6 +47,30 @@ const CommentList = (props) => {
     const response = await backend.get(`/ratings/`).catch((e) => alert(e));
     setCommentList(response.data);
   };
+
+  const handleDeleteButtonClick = (checkOutRating) => {
+    backend
+      .delete(`/ratings/${checkOutRating.id}/`)
+      .then((res) => {
+        setMessageList([
+          ...messageList,
+          <Alert severity="success" className="my-2">
+            Your rating for {checkOutRating.course_name} has been deleted
+          </Alert>,
+        ]);
+        fetchComments();
+      })
+      .catch((e) => {
+        setMessageList([
+          ...messageList,
+          <Alert severity="error" className="my-2">
+            {e.response.statusText}
+          </Alert>,
+        ]);
+      });
+    setOpenDeleteDialog(false);
+  };
+
   const renderedCommentList = commentList.map((commentObj) => (
     <TableRow key={commentObj.id}>
       <TableCell component="th" scope="row">
@@ -53,8 +86,22 @@ const CommentList = (props) => {
           size="small"
         />
       </TableCell>
-      <TableCell></TableCell>
-      <TableCell></TableCell>
+      <TableCell>
+        <Button color="primary">
+          <i class="far fa-edit fa-lg"></i>
+        </Button>
+      </TableCell>
+      <TableCell>
+        <Button
+          color="secondary"
+          onClick={() => {
+            setCheckOutRating(commentObj);
+            setOpenDeleteDialog(true);
+          }}
+        >
+          <i class="far fa-trash-alt fa-lg"></i>
+        </Button>
+      </TableCell>
     </TableRow>
   ));
 
@@ -70,7 +117,8 @@ const CommentList = (props) => {
           </div>
         </div>
       </div>
-      <div className="container my-5">
+      <div className="container my-3">
+        {messageList}
         {renderedCommentList.length === 0 ? (
           <p className="h5 text-muted text-center mt-5">
             You haven't made any reviews yet
@@ -78,19 +126,40 @@ const CommentList = (props) => {
         ) : (
           <TableContainer component={Paper}>
             <Table className={classes.table} aria-label="simple table">
-              <TableHead>
-                <TableRow>
-                  <TableCell>Course Name</TableCell>
-                  <TableCell>Comment</TableCell>
-                  <TableCell>Rating</TableCell>
-                  <TableCell>Edit</TableCell>
-                  <TableCell>Delete</TableCell>
-                </TableRow>
-              </TableHead>
               <TableBody>{renderedCommentList}</TableBody>
             </Table>
           </TableContainer>
         )}
+      </div>
+      <div>
+        <Dialog
+          open={openDeleteDialog}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <DialogTitle id="alert-dialog-title">{"Delete rating?"}</DialogTitle>
+          <DialogContent>
+            <DialogContentText id="alert-dialog-description">
+              Your comment and star rating for{" "}
+              <b>{checkOutRating.course_name}</b> will be deleted
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button
+              onClick={() => handleDeleteButtonClick(checkOutRating)}
+              color="secondary"
+            >
+              Delete
+            </Button>
+            <Button
+              onClick={() => setOpenDeleteDialog(false)}
+              color="primary"
+              autoFocus
+            >
+              Close
+            </Button>
+          </DialogActions>
+        </Dialog>
       </div>
     </>
   );
