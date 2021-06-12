@@ -10,7 +10,6 @@ import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
-import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import Alert from "@material-ui/lab/Alert";
@@ -55,7 +54,7 @@ const CommentList = (props) => {
         setMessageList([
           ...messageList,
           <Alert severity="success" className="my-2">
-            Your rating for {checkOutRating.course_name} has been deleted
+            Your review for {checkOutRating.course_name} has been deleted
           </Alert>,
         ]);
         fetchComments();
@@ -109,8 +108,15 @@ const CommentList = (props) => {
     <>
       <div className={`bg-white py-3 shadow-sm sticky`}>
         <div className={`container-fluid mx-auto d-flex flex-row`}>
-          <div className="text-lead" style={{ fontSize: "1.5em" }}>
-            My Ratings
+          <div className="d-flex flex-row mr-3">
+            <div
+              className="text-lead nav-logo"
+              style={{ fontSize: "1.5em" }}
+              onClick={() => history.push("/")}
+            >
+              Course Reviews
+            </div>
+            <i class="fas fa-comment-dots"></i>
           </div>
           <div className={`ml-auto ml-2`}>
             <ProfileDropDown />
@@ -118,6 +124,7 @@ const CommentList = (props) => {
         </div>
       </div>
       <div className="container my-3">
+        <div className="h5 text-muted">My Reviews</div>
         {messageList}
         {renderedCommentList.length === 0 ? (
           <p className="h5 text-muted text-center mt-5">
@@ -137,7 +144,7 @@ const CommentList = (props) => {
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
         >
-          <DialogTitle id="alert-dialog-title">{"Delete rating?"}</DialogTitle>
+          <DialogTitle id="alert-dialog-title">{"Delete review?"}</DialogTitle>
           <DialogContent>
             <DialogContentText id="alert-dialog-description">
               Your comment and star rating for{" "}
