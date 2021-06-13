@@ -89,7 +89,6 @@ const Login = (props) => {
         message: "You are logged in.",
       });
     } catch (err) {
-      console.log(err);
       setErrorMessages(err.response.data);
     }
   };
@@ -154,7 +153,7 @@ const Login = (props) => {
           <Grid container>
             <Grid item>
               <Link href="/register" variant="body2">
-                {"Don't have an account? Sign Up"}
+                {"Don't have an account? Register"}
               </Link>
             </Grid>
           </Grid>

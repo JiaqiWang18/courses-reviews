@@ -109,3 +109,12 @@ body {
 .page-wrap {
   min-height: 100vh;
 }
+
+.course-accordion:hover{
+  background: #f2f2f2 !important;
+}
+
+.nav-text:hover{
+  cursor: pointer;
+  color: #737373;
+}

@@ -11,10 +11,14 @@ import Rating from "@material-ui/lab/Rating";
 import backend from "../apis/backend";
 import { useHistory } from "react-router-dom";
 import { fetchCourses } from "../actions";
+import Alert from "@material-ui/lab/Alert";
+import Grid from "@material-ui/core/Grid";
 
 const RatingForm = (props) => {
   const [rating, setRating] = React.useState(null);
   const [comment, setComment] = React.useState("");
+  const [errorMessages, setErrorMessages] = React.useState({});
+
   let history = useHistory();
 
   React.useEffect(() => {
@@ -22,19 +26,37 @@ const RatingForm = (props) => {
     setComment("");
   }, [props.open]);
 
-  const handleSubmit = async () => {
-    const response = await backend.post(`/ratings/`, {
-      student_rating: rating,
-      comment: comment,
-      course: props.courseId,
-    });
-    props.handleClose();
-    props.fetchCourses();
-    history.push({
-      pathname: "/courses/" + props.courseId,
-      message: "Your rating submitted successfully.",
-    });
+  const handleSubmit = () => {
+    backend
+      .post(`/ratings/`, {
+        student_rating: rating,
+        comment: comment,
+        course: props.courseId,
+      })
+      .then((res) => {
+        props.handleClose();
+        props.fetchCourses();
+        history.push({
+          pathname: "/courses/" + props.courseId,
+          message: "Your rating was submitted successfully.",
+        });
+      })
+      .catch((e) => {
+        setErrorMessages(e.response.data);
+      });
   };
+
+  const renderedErrorMessages = Object.keys(errorMessages).map((key) => {
+    return (
+      <Alert severity="error" elevation={3} key={key} className="mb-2">
+        {key === "student_rating"
+          ? "Stars"
+          : key.charAt(0).toUpperCase() + key.slice(1)}
+        <li>{errorMessages[key]}</li>
+      </Alert>
+    );
+  });
+
   return (
     <Dialog
       open={props.open}
@@ -46,6 +68,9 @@ const RatingForm = (props) => {
         Submit a rating for <b>{props.courseTitle}</b>
       </DialogTitle>
       <DialogContent>
+        <Grid item xs={12}>
+          {renderedErrorMessages}
+        </Grid>
         <DialogContentText>Please leave some comments</DialogContentText>
         <TextField
           id="outlined-textarea"

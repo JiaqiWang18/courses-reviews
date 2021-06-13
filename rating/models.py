@@ -5,7 +5,7 @@ from user.models import User
 
 class Rating(models.Model):
     student_rating = models.DecimalField(max_digits=3, decimal_places=1)
-    comment = models.TextField(null=True, blank=True)
+    comment = models.TextField(max_length=100)
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
 

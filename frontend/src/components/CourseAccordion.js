@@ -82,7 +82,7 @@ const CourseAccordion = ({
   };
 
   return (
-    <div className="card mb-2 mt-1" key={key} ref={ref}>
+    <div className="mb-2 mt-1" key={key} ref={ref}>
       <RatingForm
         open={formOpen}
         handleClose={handleFormClose}
@@ -93,6 +93,7 @@ const CourseAccordion = ({
         square
         expanded={expandedId == courseObj.id}
         onChange={() => handleExpandChange(courseObj.id)}
+        className={expandedId != courseObj.id && `course-accordion`}
       >
         <AccordionSummary>
           <div className="card-body">

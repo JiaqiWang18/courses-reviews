@@ -38,10 +38,26 @@ const Home = (props) => {
               <i class="fas fa-comment-dots"></i>
             </div>
           )}
-          <Search />
-          <DropDown options={sortOptions} />
+          <div className="row">
+            <div className="col-md">
+              <Search />
+            </div>
+            <div className="col">
+              <DropDown options={sortOptions} />
+            </div>
+          </div>
           <div className={`ml-auto ml-2`}>
-            <ProfileDropDown />
+            {props.loggedIn ? (
+              <ProfileDropDown />
+            ) : (
+              <a
+                className="btn btn-outline-danger"
+                href="/ratings"
+                role="button"
+              >
+                Log In
+              </a>
+            )}
           </div>
         </div>
       </div>

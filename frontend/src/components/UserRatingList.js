@@ -137,7 +137,7 @@ const UserRatingList = (props) => {
         <div className={`container-fluid mx-auto d-flex flex-row`}>
           <div className="d-flex flex-row mr-3">
             <div
-              className="text-lead nav-logo"
+              className="text-lead nav-logo nav-text"
               style={{ fontSize: "1.5em" }}
               onClick={() => history.push("/")}
             >

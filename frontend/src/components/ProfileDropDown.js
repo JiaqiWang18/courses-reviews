@@ -41,33 +41,16 @@ const ProfileDropDown = (props) => {
           horizontal: "center",
         }}
       >
-        {props.loggedIn ? (
-          <>
-            <MenuItem onClick={handleClose}>
-              <a className="btn btn-muted" href="/ratings" role="button">
-                My Comments
-              </a>
-            </MenuItem>
-            <MenuItem onClick={handleClose}>
-              <a className="btn btn-muted" href="/logout" role="button">
-                Log out
-              </a>
-            </MenuItem>
-          </>
-        ) : (
-          <>
-            <MenuItem onClick={handleClose}>
-              <a className="btn btn-muted" href="/login" role="button">
-                Log In
-              </a>
-            </MenuItem>
-            <MenuItem onClick={handleClose}>
-              <a className="btn btn-muted" href="/register" role="button">
-                Register
-              </a>
-            </MenuItem>
-          </>
-        )}
+        <MenuItem onClick={handleClose}>
+          <a className="btn btn-muted" href="/ratings" role="button">
+            My Comments
+          </a>
+        </MenuItem>
+        <MenuItem onClick={handleClose}>
+          <a className="btn btn-muted" href="/logout" role="button">
+            Log out
+          </a>
+        </MenuItem>
       </Menu>
     </div>
   );
