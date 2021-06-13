@@ -33,7 +33,7 @@ const Logout = (props) => {
       message: "Session has expired or you manually logged out.",
     });
   };
-  return <div></div>;
+  return <div>Logging Out...</div>;
 };
 
 export default connect(null, { updateLogIn })(Logout);

@@ -44,9 +44,11 @@ backend.interceptors.response.use(
             });
         } else {
           window.location.href = "/logout";
+          return;
         }
       } else {
         window.location.href = "/logout";
+        return;
       }
     }
     return Promise.reject(error);

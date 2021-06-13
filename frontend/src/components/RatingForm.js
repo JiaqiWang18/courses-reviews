@@ -43,7 +43,7 @@ const RatingForm = (props) => {
       fullWidth
     >
       <DialogTitle id="form-dialog-title">
-        Submit a rating for {props.courseTitle}
+        Submit a rating for <b>{props.courseTitle}</b>
       </DialogTitle>
       <DialogContent>
         <DialogContentText>Please leave some comments</DialogContentText>
