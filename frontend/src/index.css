@@ -1,0 +1,120 @@
+a:hover {
+  color: rgb(173, 171, 171) !important;
+  text-decoration: none;
+}
+body {
+  background-color: #eceef1;
+}
+
+/* TopBar */
+.hero {
+  height: 300px;
+}
+.bg-gradient {
+  background-image: linear-gradient(
+    to right bottom,
+    #0444a3,
+    #007cd5,
+    #00abc5,
+    #00d27f,
+    #a8eb12
+  );
+}
+
+/* App */
+.width-70 {
+  width: 73%;
+}
+
+/* Search */
+.search-wdith {
+  max-width: 200px;
+}
+
+/* Dropdown */
+.dropdown-btn:hover {
+  color: rgb(173, 171, 171) !important;
+}
+
+.dropdown-btn:focus {
+  box-shadow: none;
+}
+
+.dropdown-item:focus {
+  outline: none;
+}
+
+.dropdown-menu-arrow {
+  top: -25px;
+  left: 50%;
+  width: 0;
+  height: 0;
+  position: relative;
+}
+.dropdown-menu-arrow:before,
+.dropdown-menu-arrow:after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  border-width: 7px 8px;
+  border-style: solid;
+  border-color: transparent;
+  z-index: 1001;
+}
+.dropdown-menu-arrow:after {
+  bottom: -18px;
+  right: -8px;
+  border-bottom-color: #fff;
+}
+.dropdown-menu-arrow:before {
+  bottom: -17px;
+  right: -8px;
+  border-bottom-color: rgba(0, 0, 0, 0.15);
+}
+
+/* Home */
+
+/* RatingList */
+.rating-card {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+*:focus {
+  outline: none !important;
+}
+
+@media (min-width: 768px) {
+  .desktop-width {
+    width: 75%;
+  }
+}
+
+@media (max-width: 768px) {
+   .desktop-width {
+    width: 95%;
+  }
+
+}
+.sticky {
+  position: sticky;
+  top: 0;
+  z-index: 99;
+}
+
+body {
+  background: #dedede;
+}
+.page-wrap {
+  min-height: 100vh;
+}
+
+.course-accordion:hover{
+  background: #f2f2f2 !important;
+}
+
+.nav-text:hover{
+  cursor: pointer;
+  color: #737373;
+}
