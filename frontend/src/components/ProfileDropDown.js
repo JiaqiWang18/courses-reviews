@@ -42,12 +42,12 @@ const ProfileDropDown = (props) => {
         }}
       >
         <MenuItem onClick={handleClose}>
-          <a className="btn btn-muted" href="/ratings" role="button">
+          <a className="btn btn-muted" href="/ratings/" role="button">
             My Comments
           </a>
         </MenuItem>
         <MenuItem onClick={handleClose}>
-          <a className="btn btn-muted" href="/logout" role="button">
+          <a className="btn btn-muted" href="/logout/" role="button">
             Log out
           </a>
         </MenuItem>

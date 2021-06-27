@@ -43,7 +43,7 @@ const UpdateRatingForm = (props) => {
       .then((res) => {
         props.handleClose();
         history.push({
-          pathname: "/ratings",
+          pathname: "/ratings/",
           message: (
             <Alert severity="success" className="my-2">
               {`Your review for ${props.courseName} was updated successfully`}

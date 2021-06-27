@@ -52,7 +52,7 @@ const Home = (props) => {
             ) : (
               <a
                 className="btn btn-outline-danger"
-                href="/ratings"
+                href="/ratings/"
                 role="button"
               >
                 Log In

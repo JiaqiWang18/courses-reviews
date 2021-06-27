@@ -16,13 +16,13 @@ const App = (props) => {
   return (
     <Router>
       <Switch>
-        <Route path="/login" component={Login} />
-        <Route path="/logout" component={Logout} />
-        <Route path="/register" component={Register} />
+        <Route path="/login/" component={Login} />
+        <Route path="/logout/" component={Logout} />
+        <Route path="/register/" component={Register} />
         <Route path="/" exact component={Home} />
-        <Route path="/courses/:id" exact component={Home} />
-        <Route path="/courses" exact component={Home} />
-        <Route path="/ratings" exact component={UserRatingList} />
+        <Route path="/courses/:id/" exact component={Home} />
+        <Route path="/courses/" exact component={Home} />
+        <Route path="/ratings/" exact component={UserRatingList} />
         <Route path="*" component={NotFound} />
       </Switch>
     </Router>

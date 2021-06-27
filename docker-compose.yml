@@ -4,9 +4,8 @@ services:
   backend:
     build:
       context: ./coursebackend
-    command: gunicorn coursebackend.wsgi --bind 0.0.0.0:8000
-    ports:
-      - "8000:8000"
+    volumes:
+      - ./coursebackend/static_cdn/static_root:/coursebackend/static_cdn/static_root
   frontend:
     build:
       context: ./frontend
@@ -17,10 +16,11 @@ services:
     ports:
       - 80:8080
     volumes:
-      - ./nginx/nginx-setup.config:/etc/nginx/conf.d/default.conf:ro
+      - ./nginx/nginx-setup.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./coursebackend/static_cdn/static_root:/django_static
       - react-build:/var/www/react
-      depends_on:
-        - backend
-        - frontend
-volume:
-  react-build
+    depends_on:
+      - backend
+      - frontend
+volumes:
+  react-build:

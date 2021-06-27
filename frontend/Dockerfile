@@ -1,4 +1,4 @@
-FROM node:15.13-alphine
+FROM node:14.17.1-alpine
 WORKDIR /frontend
 COPY . .
-RUN npm run build
+RUN npm install && npm run build

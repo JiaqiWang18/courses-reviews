@@ -75,7 +75,7 @@ const CourseAccordion = ({
     if (localStorage.getItem("access_token")) setFormOpen(true);
     else {
       history.push({
-        pathname: "/login",
+        pathname: "/login/",
         message: "Please log in or register first.",
       });
     }

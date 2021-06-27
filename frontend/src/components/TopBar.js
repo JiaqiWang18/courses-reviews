@@ -12,7 +12,7 @@ const TopBar = (props) => {
   return (
     <div className="bg-gradient hero d-flex flex-column" ref={ref}>
       <div className="container d-flex flex-row-reverse">
-        <a className="btn btn-muted text-white" href="/api" role="button">
+        <a className="btn btn-muted text-white" href="/api/" role="button">
           <div className="h6 mt-2">API doc</div>
         </a>
       </div>

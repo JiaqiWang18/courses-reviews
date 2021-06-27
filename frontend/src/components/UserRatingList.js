@@ -36,7 +36,7 @@ const UserRatingList = (props) => {
   useEffect(() => {
     if (!localStorage.getItem("access_token")) {
       history.push({
-        pathname: "/login",
+        pathname: "/login/",
         message: "Please log in to see submitted ratings",
       });
       return;
