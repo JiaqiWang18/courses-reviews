@@ -1,0 +1,1 @@
+rsync -avz -progress -e "ssh -i /Users/jiaqiwang/Documents/aws/pk/course-reviews.pem" --exclude coursebackend/venv --exclude coursebackend/static_cdn --exclude frontend/node_modules . ubuntu@ec2-54-67-113-190.us-west-1.compute.amazonaws.com:/home/ubuntu/app/

@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  backend:
+    build:
+      context: ./coursebackend
+    volumes:
+      - django-static:/coursebackend/static_cdn/static_root
+    expose:
+      - 8000
+  frontend:
+    build:
+      context: ./frontend
+    volumes:
+      - react-build:/frontend/build
+  nginx:
+    image: nginx:latest
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx/dev.conf:/etc/nginx/conf.d/default.conf:ro
+      - django-static:/django_static
+      - react-build:/var/www/react
+    depends_on:
+      - backend
+      - frontend
+volumes:
+  react-build:
+  django-static:
