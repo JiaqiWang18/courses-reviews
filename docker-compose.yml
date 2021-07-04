@@ -30,7 +30,7 @@ services:
             dockerfile: ./docker/backend/Dockerfile
         entrypoint: /app/docker/backend/entrypoint.sh
         volumes:
-            - static_volume:/app/backend/server/django_static
+            - static_volume:/app/backend/coursebackend/django_static
         expose:
             - 8000
 
