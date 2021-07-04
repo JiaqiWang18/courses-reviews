@@ -2,76 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="09025a40-b83f-4550-88c2-819fc49955c6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/docker/nginx/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmd.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/.dockerignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/.idea/.name" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/.idea/coursebackend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/.idea/coursebackend.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/backend/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/api/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/api/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/api/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/api/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/api/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/api/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/api/heap.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/api/heap.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/api/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/api/migrations/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/api/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/api/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/api/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/api/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/api/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/api/signals.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/api/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/api/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/api/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/api/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/api/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/course/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/course/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/course/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/course/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/course/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/course/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/course/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/course/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/course/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/course/migrations/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/course/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/course/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/course/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/course/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/course/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/course/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/coursebackend/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/coursebackend/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/coursebackend/asgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/coursebackend/asgi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/coursebackend/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/coursebackend/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/coursebackend/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/coursebackend/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/coursebackend/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/coursebackend/wsgi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/entrypoint.sh" beforeDir="false" afterPath="$PROJECT_DIR$/docker/backend/entrypoint.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/manage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/rating/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/rating/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/rating/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/rating/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/rating/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/rating/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/rating/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/rating/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/rating/migrations/0002_rating_author.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/rating/migrations/0002_rating_author.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/rating/migrations/0003_auto_20210515_2326.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/rating/migrations/0003_auto_20210515_2326.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/rating/migrations/0004_alter_rating_author.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/rating/migrations/0004_alter_rating_author.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/rating/migrations/0005_alter_rating_comment.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/rating/migrations/0005_alter_rating_comment.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/rating/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/rating/migrations/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/rating/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/rating/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/rating/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/rating/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/rating/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/rating/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/snippet.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/snippet.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/user/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/user/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/user/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/user/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/user/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/user/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/user/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/user/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/user/migrations/0002_alter_user_is_active.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/user/migrations/0002_alter_user_is_active.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/user/migrations/0003_auto_20210521_1741.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/user/migrations/0003_auto_20210521_1741.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/user/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/user/migrations/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/user/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/user/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/user/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/user/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursebackend/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/coursebackend/user/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose-dev.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/nginx/production/default.conf" beforeDir="false" afterPath="$PROJECT_DIR$/docker/nginx/production/default.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/init-letsencrypt.sh" beforeDir="false" afterPath="$PROJECT_DIR$/init-letsencrypt.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nginx/default.conf" beforeDir="false" afterPath="$PROJECT_DIR$/docker/nginx/production/default.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nginx/dev.conf" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +84,7 @@
       <workItem from="1624734436137" duration="562000" />
       <workItem from="1624736664204" duration="14261000" />
       <workItem from="1624946727493" duration="27966000" />
-      <workItem from="1625344269871" duration="9350000" />
+      <workItem from="1625344269871" duration="12148000" />
     </task>
     <servers />
   </component>
