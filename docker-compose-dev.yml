@@ -2,28 +2,28 @@ version: "3"
 
 services:
   backend:
+    restart: unless-stopped
     build:
-      context: ./coursebackend
+      context: .
+      dockerfile: ./docker/backend/Dockerfile
+    entrypoint: /app/docker/backend/entrypoint.sh
     volumes:
-      - django-static:/coursebackend/static_cdn/static_root
+      - .:/app
+      - static_volume:/app/backend/coursebackend/django_static
     expose:
       - 8000
-  frontend:
-    build:
-      context: ./frontend
-    volumes:
-      - react-build:/frontend/build
   nginx:
-    image: nginx:latest
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: ./docker/nginx/Dockerfile
     ports:
       - 80:80
     volumes:
-      - ./nginx/dev.conf:/etc/nginx/conf.d/default.conf:ro
-      - django-static:/django_static
-      - react-build:/var/www/react
+      - static_volume:/app/backend/coursebackend/django_static
+      - ./docker/nginx/development:/etc/nginx/conf.d
     depends_on:
       - backend
-      - frontend
 volumes:
-  react-build:
-  django-static:
+  static_volume: {}
+

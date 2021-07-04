@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 if ! [ -x "$(command -v docker-compose)" ]; then
   echo 'Error: docker-compose is not installed.' >&2
@@ -7,8 +7,8 @@ fi
 
 domains=(coursesreviews.net www.coursesreviews.net)
 rsa_key_size=4096
-data_path="./docker/nginx/certbot"
-email="" # Adding a valid address is strongly recommended
+data_path="./nginx/certbot"
+email="jacky200218@gmail.com" # Adding a valid address is strongly recommended
 staging=1 # Set to 1 if you're testing your setup to avoid hitting request limits
 
 if [ -d "$data_path" ]; then
