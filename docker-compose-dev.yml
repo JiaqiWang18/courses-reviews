@@ -25,5 +25,5 @@ services:
     depends_on:
       - backend
 volumes:
-  static_volume: {}
+  static_volume:
 

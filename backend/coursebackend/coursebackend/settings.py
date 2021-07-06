@@ -28,7 +28,7 @@ SECRET_KEY = env('DJANGO_SECRET_KEY')
 
 DEBUG = (env('DEBUG_VALUE') == 'True')
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['127.0.0.1', '0.0.0.0', 'coursesreviews.net', 'www.coursesreviews.net']
 
 CORS_ORIGIN_ALLOW_ALL = True
 
@@ -127,7 +127,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static_cdn', 'static_root')
+STATIC_ROOT = os.path.join(BASE_DIR, 'django_static')
 STATIC_URL = '/django_static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'

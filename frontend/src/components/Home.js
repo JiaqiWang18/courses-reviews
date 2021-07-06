@@ -33,7 +33,7 @@ const Home = (props) => {
           {!isTopBarOnScreen && (
             <div className="d-flex flex-row mr-3">
               <div className="text-lead" style={{ fontSize: "1.5em" }}>
-                Course Reviews
+                Courses Reviews
               </div>
               <i class="fas fa-comment-dots"></i>
             </div>

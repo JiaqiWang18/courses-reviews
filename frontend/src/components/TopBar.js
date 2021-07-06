@@ -19,7 +19,7 @@ const TopBar = (props) => {
       <div className="container my-auto">
         <div className="d-flex flex-row">
           <h1 className="display-4 text-white font-weight-bold">
-            Course Reviews
+            Courses Reviews
           </h1>
           <i className="fas fa-comment-dots text-white fa-2x"></i>
         </div>
