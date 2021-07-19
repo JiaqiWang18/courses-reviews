@@ -12,18 +12,26 @@ services:
       - static_volume:/app/backend/coursebackend/django_static
     expose:
       - 8000
-  nginx:
-    restart: unless-stopped
+  frontend:
     build:
       context: .
-      dockerfile: ./docker/nginx/Dockerfile
+      dockerfile: ./docker/frontend/Dockerfile
+    volumes:
+      - react-build:/app/frontend/build
+  nginx:
+    image: nginx:latest
+    restart: unless-stopped
     ports:
       - 80:80
     volumes:
       - static_volume:/app/backend/coursebackend/django_static
       - ./docker/nginx/development:/etc/nginx/conf.d
+      - react-build:/usr/share/nginx/html
     depends_on:
       - backend
+      - frontend
 volumes:
   static_volume:
+  react-build:
+
 

@@ -3,19 +3,19 @@ version: '2'
 services:
     nginx:
         restart: unless-stopped
-        build:
-            context: .
-            dockerfile: ./docker/nginx/Dockerfile
+        image: nginx:latest
         ports:
             - 80:80
             - 443:443
         volumes:
+            - react-build:/usr/share/nginx/html
             - static_volume:/app/backend/coursebackend/django_static
             - ./docker/nginx/production:/etc/nginx/conf.d
             - ./docker/nginx/certbot/conf:/etc/letsencrypt
             - ./docker/nginx/certbot/www:/var/www/certbot
         depends_on:
             - backend
+            - frontend
     certbot:
         image: certbot/certbot
         restart: unless-stopped
@@ -33,6 +33,12 @@ services:
             - static_volume:/app/backend/coursebackend/django_static
         expose:
             - 8000
-
+    frontend:
+        build:
+            context: .
+            dockerfile: ./docker/frontend/Dockerfile
+        volumes:
+            - react-build:/app/frontend/build
 volumes:
     static_volume: {}
+    react-build:
