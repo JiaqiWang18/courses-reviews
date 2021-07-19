@@ -16,7 +16,7 @@ from environ import Env               # new
 import os
 
 env = Env()
-env.read_env(env_file='config/.env')
+env.read_env(env_file='./.env')
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
@@ -26,9 +26,9 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env('DJANGO_SECRET_KEY')
 
-DEBUG = (env('DEBUG_VALUE') == 'True')
+DEBUG = (os.environ.get('DEBUG') == "1")
 
-ALLOWED_HOSTS = ['127.0.0.1', '0.0.0.0', 'coursesreviews.net', 'www.coursesreviews.net']
+ALLOWED_HOSTS = ['127.0.0.1', '0.0.0.0', 'coursesreviews.net', 'www.coursesreviews.net', 'localhost']
 
 CORS_ORIGIN_ALLOW_ALL = True
 

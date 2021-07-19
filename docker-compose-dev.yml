@@ -6,32 +6,21 @@ services:
     build:
       context: .
       dockerfile: ./docker/backend/Dockerfile
-    entrypoint: /app/docker/backend/entrypoint.sh
+    entrypoint: /app/docker/backend/entrypoint-dev.sh
     volumes:
-      - .:/app
-      - static_volume:/app/backend/coursebackend/django_static
-    expose:
-      - 8000
+      - ./backend:/app/backend
+    ports:
+      - 8000:8000
+    environment:
+      - DEBUG=1
   frontend:
     build:
       context: .
-      dockerfile: ./docker/frontend/Dockerfile
+      dockerfile: ./docker/frontend/Dockerfile.dev
+    environment:
+      CHOKIDAR_USEPOLLING: "true"
     volumes:
-      - react-build:/app/frontend/build
-  nginx:
-    image: nginx:latest
-    restart: unless-stopped
+      - ./frontend:/app/frontend
+      - /app/frontend/node_modules
     ports:
-      - 80:80
-    volumes:
-      - static_volume:/app/backend/coursebackend/django_static
-      - ./docker/nginx/development:/etc/nginx/conf.d
-      - react-build:/usr/share/nginx/html
-    depends_on:
-      - backend
-      - frontend
-volumes:
-  static_volume:
-  react-build:
-
-
+      - 80:3000
