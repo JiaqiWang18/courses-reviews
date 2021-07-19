@@ -23,4 +23,14 @@ services:
       - ./frontend:/app/frontend
       - /app/frontend/node_modules
     ports:
-      - 80:3000
+      - 3000:3000
+  nginx:
+    restart: unless-stopped
+    image: nginx:latest
+    ports:
+      - 80:80
+    volumes:
+      - ./docker/nginx/development:/etc/nginx/conf.d
+    depends_on:
+      - backend
+      - frontend
