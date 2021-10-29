@@ -1,36 +1,52 @@
 version: "3"
 
 services:
-  backend:
-    restart: unless-stopped
-    build:
-      context: .
-      dockerfile: ./docker/backend/Dockerfile
-    entrypoint: /app/docker/backend/entrypoint-dev.sh
+  db:
+    image: postgres:buster
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
     volumes:
-      - ./backend:/app/backend
+      - ./postgres_data/db:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+  api:
+    build:
+      context: ./coursebackend
+      dockerfile: Dockerfile.dev
+    entrypoint: /app/entrypoint-dev.sh
+    volumes:
+      - ./coursebackend:/app
     ports:
       - 8000:8000
     environment:
+      - DB_HOST=db
+      - DB_NAME=postgres
+      - DB_USER=postgres
+      - DB_PASS=postgres
+      - SECRET_KEY=devsecretkey
       - DEBUG=1
+    depends_on:
+      - db
   frontend:
     build:
-      context: .
-      dockerfile: ./docker/frontend/Dockerfile.dev
+      dockerfile: Dockerfile.dev
+      context: ./frontend
     environment:
       CHOKIDAR_USEPOLLING: "true"
     volumes:
-      - ./frontend:/app/frontend
-      - /app/frontend/node_modules
-    ports:
-      - 3000:3000
+      - /app/node_modules
+      - ./frontend:/app
   nginx:
-    restart: unless-stopped
-    image: nginx:latest
-    ports:
-      - 80:80
+    restart: always
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./nginx
     volumes:
-      - ./docker/nginx/development:/etc/nginx/conf.d
+      - ./nginx:/etc/nginx/conf.d
+    ports:
+      - "5000:80"
     depends_on:
-      - backend
+      - api
       - frontend
