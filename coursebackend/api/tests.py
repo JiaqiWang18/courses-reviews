@@ -70,7 +70,8 @@ class ApiTests(APITestCase):
         ratings = [
             {
                 "student_rating": random.randint(1, 5),
-                "course": rand_course_id
+                "course": rand_course_id,
+                "comment": "my comment"
             }for _ in range(random.randint(0, 60))
         ]
         correct_rating = round(sum(map(lambda n: n["student_rating"], ratings))/len(ratings), 1)

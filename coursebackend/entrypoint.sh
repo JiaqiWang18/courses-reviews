@@ -1,5 +1,5 @@
 #!/bin/sh
-until cd /app/backend/coursebackend
+until cd /app/
 do
     echo "Waiting for server volume..."
 done
@@ -13,4 +13,3 @@ done
 ./manage.py collectstatic --noinput
 
 gunicorn coursebackend.wsgi --bind 0.0.0.0:8000 --workers 4 --threads 4
-#./manage.py runserver 0.0.0.0:8003

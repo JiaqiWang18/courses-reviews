@@ -2,7 +2,7 @@ version: "3"
 
 services:
   db:
-    image: postgres:buster
+    image: postgres:latest
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
@@ -15,7 +15,9 @@ services:
     build:
       context: ./coursebackend
       dockerfile: Dockerfile.dev
-    entrypoint: /app/entrypoint-dev.sh
+    command: sh -c "python manage.py wait_for_db &&
+                    python manage.py migrate &&
+                    python manage.py runserver 0.0.0.0:8000"
     volumes:
       - ./coursebackend:/app
     ports:

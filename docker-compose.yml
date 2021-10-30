@@ -1,44 +1,24 @@
-version: '2'
-
+version: '3'
 services:
-    nginx:
-        restart: unless-stopped
-        image: nginx:latest
-        ports:
-            - 80:80
-            - 443:443
-        volumes:
-            - react-build:/usr/share/nginx/html
-            - static_volume:/app/backend/coursebackend/django_static
-            - ./docker/nginx/production:/etc/nginx/conf.d
-            - ./docker/nginx/certbot/conf:/etc/letsencrypt
-            - ./docker/nginx/certbot/www:/var/www/certbot
-        depends_on:
-            - backend
-            - frontend
-    certbot:
-        image: certbot/certbot
-        restart: unless-stopped
-        volumes:
-            - ./docker/nginx/certbot/conf:/etc/letsencrypt
-            - ./docker/nginx/certbot/www:/var/www/certbot
-        entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
-    backend:
-        restart: unless-stopped
-        build:
-            context: .
-            dockerfile: ./docker/backend/Dockerfile
-        entrypoint: /app/docker/backend/entrypoint.sh
-        volumes:
-            - static_volume:/app/backend/coursebackend/django_static
-        expose:
-            - 8000
-    frontend:
-        build:
-            context: .
-            dockerfile: ./docker/frontend/Dockerfile
-        volumes:
-            - react-build:/app/frontend/build
-volumes:
-    static_volume: {}
-    react-build:
+  api:
+    image: "jiaqiwang118/coursesreviews-backend"
+    mem_limit: 1024m
+    hostname: api
+    entrypoint: /app/entrypoint.sh
+    environment:
+      - DB_HOST=$DB_HOST
+      - DB_NAME=$DB_NAME
+      - DB_USER=$DB_USER
+      - DB_PASS=$DB_PASS
+      - SECRET_KEY=$SECRET_KEY
+      - DEBUG=$DEBUG
+  frontend:
+    image: "jiaqiwang118/coursesreviews-frontend"
+    mem_limit: 1024m
+    hostname: frontend
+  nginx:
+    image: "jiaqiwang118/coursesreviews-nginx"
+    mem_limit: 1024m
+    hostname: nginx
+    ports:
+      - "80:80"
