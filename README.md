@@ -112,7 +112,7 @@ Data Structures Used:
    ```
 2. Build containers
    ```sh
-   docker-compose build
+   docker-compose -f docker-compose-dev.yml build
    ```
 3. Start containers
    ```sh
