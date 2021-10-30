@@ -110,19 +110,11 @@ Data Structures Used:
    ```sh
    git clone https://github.com/JiaqiWang18/courses-reviews.git
    ```
-2. Install NPM packages
+2. Build containers
    ```sh
-   npm install
+   docker-compose build
    ```
-3. Install NPM packages
+3. Start containers
    ```sh
-   pip install -r requirements.txt
-   ```
-4. Run the backend server
-   ```sh
-   pyhton manage.py runserver
-   ```
-5. Run the backend server
-   ```sh
-   npm run dev
+   docker-compose -f docker-compose-dev.yml up
    ```
