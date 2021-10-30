@@ -2,7 +2,7 @@ services:
   - docker
 
 script:
-  #- docker-compose -f docker-compose-dev.yml run api python manage.py test
+  - docker-compose -f docker-compose-dev.yml run api python manage.py test
 
 after_success:
   - docker build -t jiaqiwang118/coursesreviews-frontend ./frontend
