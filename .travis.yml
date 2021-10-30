@@ -12,3 +12,15 @@ after_success:
   - docker push jiaqiwang118/coursesreviews-frontend
   - docker push jiaqiwang118/coursesreviews-backend
   - docker push jiaqiwang118/coursesreviews-nginx
+
+deploy:
+  provider: elasticbeanstalk
+  region: $AWS_REGION
+  app: $APP_NAME
+  env: $ENV_NAME
+  bucket_name: $S3_BUCKET_NAME
+  bucket_path: $APP_NAME
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
