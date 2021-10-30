@@ -23,6 +23,7 @@
   <h3 align="center">Courses Reviews</h3>
   <p align="center">
     A web application in which users can rate courses and leave comments 
+   
     <br />
     <br />
     <a href="https://courses-reviews.herokuapp.com/">Live Demo</a>
