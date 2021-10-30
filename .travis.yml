@@ -1,0 +1,14 @@
+services:
+  - docker
+
+script:
+  - docker-compose -f docker-compose-dev.yml run api python manage.py test
+
+after_success:
+  - docker build -t jiaqiwang118/coursesreviews-frontend ./frontend
+  - docker build -t jiaqiwang118/coursesreviews-backend ./backend
+  - docker build -t jiaqiwang118/coursesreviews-nginx ./nginx
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push jiaqiwang118/coursesreviews-frontend
+  - docker push jiaqiwang118/coursesreviews-backend
+  - docker push jiaqiwang118/coursesreviews-nginx
