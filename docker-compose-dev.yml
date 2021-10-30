@@ -46,7 +46,7 @@ services:
       dockerfile: Dockerfile.dev
       context: ./nginx
     volumes:
-      - ./nginx:/etc/nginx/conf.d
+      - ./nginx/dev:/etc/nginx/conf.d
     ports:
       - "5000:80"
     depends_on:
