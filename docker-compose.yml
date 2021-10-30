@@ -12,7 +12,8 @@ services:
       - DB_PASS=$DB_PASS
       - SECRET_KEY=$SECRET_KEY
       - DEBUG=$DEBUG
-  frontend:
+    volumes:
+      - static_volume:/app/django_static
     image: "jiaqiwang118/coursesreviews-frontend"
     mem_limit: 1024m
     hostname: frontend
@@ -22,3 +23,7 @@ services:
     hostname: nginx
     ports:
       - "80:80"
+    volumes:
+      - static_volume:/app/django_static
+volumes:
+  static_volume:
