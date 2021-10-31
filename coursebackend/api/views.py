@@ -46,9 +46,9 @@ def course_list(request):
     else:
         course_obj = Course.objects.all()
     if order == "alpha":
-        course_obj = Course.objects.order_by(Lower("title"))
+        course_obj = course_obj.order_by(Lower("title"))
     elif order == "rating":
-        course_obj = Course.objects.order_by("-avg_rating")
+        course_obj = course_obj.objects.order_by("-avg_rating")
     queryset = course_obj
     serializer = CourseSerializer(queryset, many=True)
     data = serializer.data
