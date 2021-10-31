@@ -1,4 +1,8 @@
+import time
+
 from django.db.models.functions import Lower
+from django.core.cache import cache
+from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import generics, status, permissions
 from rest_framework.views import APIView
@@ -30,21 +34,26 @@ class LogoutUserView(APIView):
             return Response(status=status.HTTP_400_BAD_REQUEST, data=e.__str__())
 
 
-class CourseList(generics.ListAPIView):
-    serializer_class = CourseSerializer
-
-    def get_queryset(self):
-        search = self.request.query_params.get('search')
-        order = self.request.query_params.get('order') or "alpha"
-        if search:
-            course_obj = Course.objects.filter(title__icontains=search)
-        else:
-            course_obj = Course.objects.all()
-        if order == "alpha":
-            return course_obj.order_by(Lower("title"))
-        elif order == "rating":
-            return course_obj.order_by("-avg_rating")
-        return course_obj
+@api_view(http_method_names=['GET'])
+def course_list(request):
+    cache_key = request.path+request.GET.urlencode()
+    if cache.get(cache_key):
+        return Response(cache.get(cache_key))
+    search = request.GET.get('search')
+    order = request.GET.get('order') or "alpha"
+    if search:
+        course_obj = Course.objects.filter(title__icontains=search)
+    else:
+        course_obj = Course.objects.all()
+    if order == "alpha":
+        course_obj = Course.objects.order_by(Lower("title"))
+    elif order == "rating":
+        course_obj = Course.objects.order_by("-avg_rating")
+    queryset = course_obj
+    serializer = CourseSerializer(queryset, many=True)
+    data = serializer.data
+    cache.set(cache_key, data, 60*60)
+    return Response(data)
 
 
 class HomeRatingList(viewsets.ModelViewSet):
