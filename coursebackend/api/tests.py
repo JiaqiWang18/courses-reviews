@@ -6,6 +6,7 @@ from course.models import Course
 from rating.models import Rating
 from api.serializers import CourseSerializer
 import random
+import decimal
 
 
 class ApiTests(APITestCase):
@@ -82,7 +83,7 @@ class ApiTests(APITestCase):
         for rating in ratings:
             resp = self.client.post(reverse('ratings-list'), data=rating)
             self.assertEqual(resp.status_code, status.HTTP_201_CREATED)
-        self.assertTrue(str(Course.objects.get(id=rand_course_id).avg_rating), str(correct_rating))
+        self.assertTrue(Course.objects.get(id=rand_course_id).avg_rating - decimal.Decimal(correct_rating) <= 0.1)
 
     def test_view_ratings(self):
         url = reverse('home-rating-list')
