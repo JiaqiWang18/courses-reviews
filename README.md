@@ -17,45 +17,6 @@
 -->
 
 
-<!-- PROJECT LOGO -->
-<br />
-<p align="center">
-  <h3 align="center">Courses Reviews</h3>
-  <p align="center">
-    A web application in which users can rate courses and leave comments 
-   
-    <br />
-    <br />
-    <a href="https://courses-reviews.herokuapp.com/">Live Demo</a>
-    ·
-    <a href="https://github.com/JiaqiWang18/course-reviews/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/JiaqiWang18/course-reviews/issues">Request Feature</a>
-  </p>
-</p>
-
-
-
-<!-- TABLE OF CONTENTS -->
-<details open="open">
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-  </ol>
-</details>
-
 
 
 <!-- ABOUT THE PROJECT -->
