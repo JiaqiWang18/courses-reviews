@@ -23,5 +23,4 @@ def update_rating(sender, instance, **kwargs):
 @receiver(post_save, sender=Course)
 @receiver(post_delete, sender=Course)
 def clear_course_cache(**kwargs):
-    print("clear cache")
     cache.clear()
