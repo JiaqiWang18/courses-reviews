@@ -1,4 +1,5 @@
 from django.db.models.functions import Lower
+from time import sleep
 from rest_framework.response import Response
 from rest_framework import generics, status, permissions
 from rest_framework.views import APIView
@@ -34,6 +35,7 @@ class CourseList(generics.ListAPIView):
     serializer_class = CourseSerializer
 
     def get_queryset(self):
+        sleep(2)
         search = self.request.query_params.get('search')
         order = self.request.query_params.get('order') or "alpha"
         if search:

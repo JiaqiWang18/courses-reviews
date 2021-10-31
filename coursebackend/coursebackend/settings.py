@@ -94,13 +94,13 @@ DATABASES = {
     }
 }
 
+# Password validation
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.memcached.PyMemcacheCache',
         'LOCATION': os.environ.get("CACHE_HOST")
     }
 }
-
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 

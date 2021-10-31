@@ -28,7 +28,7 @@ services:
       - DB_NAME=postgres
       - DB_USER=postgres
       - DB_PASS=postgres
-      - CACHE_HOST=127.0.0.1:11211
+      - CACHE_HOST=memcached:11211
       - SECRET_KEY=devsecretkey
       - DEBUG=1
     depends_on:
@@ -56,6 +56,8 @@ services:
       - api
       - frontend
   memcached:
-    image: memcached:latest
+    image: bitnami/memcached:latest
     ports:
       - "11211:11211"
+    expose:
+      - "11211"

@@ -1,5 +1,6 @@
 from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
+from django.core.cache import cache
 from .serializers import Course, Rating, RatingSerializer
 import decimal
 
@@ -16,3 +17,11 @@ def update_rating(sender, instance, **kwargs):
         course_to_update.update(avg_rating=None)
     else:
         course_to_update.update(avg_rating=total_rating / num_of_rating)
+    cache.clear()
+
+
+@receiver(post_save, sender=Course)
+@receiver(post_delete, sender=Course)
+def clear_course_cache(**kwargs):
+    print("clear cache")
+    cache.clear()
