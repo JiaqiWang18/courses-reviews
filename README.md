@@ -29,29 +29,7 @@ Features:
 * Use filtering and search bar to find courses
 * Fill out a form to submit a rating
 
-Data Structures Used:
-* Javascript object, or dictionary, is used as the data format for communication between the frontend and server
-```JSON
-[
-    {
-        "id": 3,
-        "title": "Enhanced Math III",
-        "course_detail": "Enhanced Math III is the second course in the rigorous accelerated sequence of high school math courses. Instructional time will focus on five critical areas: expanding understanding of functions to include polynomial, rational, and radical functions; extending their work with complex numbers; extending trigonometry to general triangles, trigonometric functions, reciprocal functions, and inverse functions",
-        "avg_rating": null,
-        "instructor_first_name": "John",
-        "instructor_last_name": "Doe"
-    },
-    {
-        "id": 5,
-        "title": "Anatomy",
-        "course_detail": "This course is designed to give students a general understanding of the structure and function of the human body. In addition, through discussions of current events in the medical field and laboratory experiments (including dissections), students will develop their analytical thinking skills and begin considering the ethical consequences of science.",
-        "avg_rating": null,
-        "instructor_first_name": "John",
-        "instructor_last_name": "Smith"
-    }
-]
-```
-* Heap and heap sort is used to sort the above data based on user input
+![Arch Screenshot](https://github.com/JiaqiWang18/courses-reviews/blob/master/coursesreviews.drawio.png)
 
 
 ### Built With
