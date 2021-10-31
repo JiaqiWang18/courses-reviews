@@ -12,6 +12,7 @@ services:
     ports:
       - "5432:5432"
   api:
+    restart: on-failure
     build:
       context: ./coursebackend
       dockerfile: Dockerfile.dev
@@ -27,10 +28,12 @@ services:
       - DB_NAME=postgres
       - DB_USER=postgres
       - DB_PASS=postgres
+      - CACHE_HOST=127.0.0.1:11211
       - SECRET_KEY=devsecretkey
       - DEBUG=1
     depends_on:
       - db
+      - memcached
   frontend:
     build:
       dockerfile: Dockerfile.dev
@@ -52,3 +55,7 @@ services:
     depends_on:
       - api
       - frontend
+  memcached:
+    image: memcached:latest
+    ports:
+      - "11211:11211"

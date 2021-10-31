@@ -11,6 +11,7 @@ services:
       - DB_USER=$DB_USER
       - DB_PASS=$DB_PASS
       - SECRET_KEY=$SECRET_KEY
+      - CACHE_HOST=$CACHE_HOST
       - DEBUG=$DEBUG
     volumes:
       - static_volume:/app/django_static
