@@ -48,13 +48,12 @@ def course_list(request):
     if order == "alpha":
         course_obj = course_obj.order_by(Lower("title"))
     elif order == "rating":
-        course_obj = course_obj.objects.order_by("-avg_rating")
+        course_obj = course_obj.order_by("-avg_rating")
     queryset = course_obj
     serializer = CourseSerializer(queryset, many=True)
     data = serializer.data
     cache.set(cache_key, data, 60*60)
     return Response(data)
-
 
 class HomeRatingList(viewsets.ModelViewSet):
     permissions = [permissions.AllowAny]
